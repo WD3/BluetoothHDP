@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (C) 2008-2011 GSyC/LibreSoft, Universidad Rey Juan Carlos.
+
+Author: Jose Antonio Santos Cadenas <jcaden@libresoft.es>
+Author: Santiago Carot-Nemesio <scarot@libresoft.es>
+
+This program is a (FLOS) free libre and open source implementation
+of a multiplatform manager device written in java according to the
+ISO/IEEE 11073-20601. Manager application is designed to work in
+DalvikVM over android platform.
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<resources> 
+
+	<!-- State Section -->
+
+	<string name="DISCONNECTED">Disconnected</string>
+	<string name="CONNECTED_UNASSOCIATED">Unassociated</string>
+	<string name="CONNECTED_ASSOCIATING">Associating</string>
+	<string name="CONNECTED_ASSOCIATED_CONFIGURING_WAITING">Waiting for Configuration</string>
+	<string name="CONNECTED_ASSOCIATED_CONFIGURING_CHECKING_CONFIG">Checking Configuration</string>
+	<string name="CONNECTED_ASSOCIATED_OPERATING">Operating</string>
+	<string name="CONNECTED_DISASSOCIATING">Disassociating</string>
+
+	<!-- Error Section -->
+
+	<string name="NO_ERROR">No error</string>
+
+	<string name="TIMEOUT" >Timeout expired</string>
+	<string name="TIMEOUT_ASSOC" >Timeout in association</string>
+	<string name="TIMEOUT_CONFIG">Timeout in configuration</string>
+	<string name="TIMEOUT_ASSOC_REL">Timeout in association release</string>
+
+	<string name="TIMEOUT_MDS_CONF_ACION">Timeout in MDS confirmed action</string>
+	<string name="TIMEOUT_MDS_CONF_EV_REP">Timeout in MDS confirmed event report</string>
+	<string name="TIMEOUT_MDS_GET">Timeout in MDS Get</string>
+	<string name="TIMEOUT_MDS_CONF_SET">Timeout in MDS Set</string>
+	<string name="TIMEOUT_MDS_SPECIAL">Timeout in MDS inter-service</string>
+
+	<string name="TIMEOUT_PM_CONF_ACION">Timeout in PM-Store confirmed action</string>
+	<string name="TIMEOUT_PM_CONF_EV_REP">Timeout in PM-Store confirmed event report</string>
+	<string name="TIMEOUT_PM_GET">Timeout in PM-Store Get</string>
+	<string name="TIMEOUT_PM_CONF_SET">Timeout in PM-Store Set</string>
+	<string name="TIMEOUT_PM_SPECIAL">Timeout in PM-Store end of segment</string>
+
+	<string name="TIMEOUT_SCN_CONF_SET">Timeout in Scanner Set</string>
+	<string name="TIMEOUT_SCN_CONF_EV_REP">Timeout in Scanner confirmed event report</string>
+
+	<string name="UNEXPECTED_ERROR">Unexpected error</string>
+	<string name="UNKNOWN_AGENT">Unknown agent error</string>
+	<string name="INVALID_ATTRIBUTE">Invalid attribute</string>
+	<string name="UNKNOWN_OBJECT">Unknown object</string>
+	<string name="UNKNOWN_PMSTORE">Unknown pm_store</string>
+
+	<string name="ASSOCIATION_ERROR">Association error</string>
+
+	<string name="INVALID_ARGUMENTS">Invalid arguments</string>
+
+	<!-- Measure Attributes Types Section -->
+
+	<string name="MDC_ATTR_ID_HANDLE">Object handle</string>
+	<string name="MDC_ATTR_ID_TYPE">Attribute id type</string>
+	<string name="MDC_ATTR_UNIT_CODE">Unit code</string>
+	<string name="MDC_ATTR_TIME_STAMP_ABS">TODO: Set this string MDC_ATTR_TIME_STAMP_ABS</string>
+	<string name="MDC_ATTR_ENUM_OBS_VAL_SIMP_BIT_STR">TODO: Set this string MDC_ATTR_ENUM_OBS_VAL_SIMP_BIT_STR</string>
+	<string name="UNKNOWN_TYPE">Unknown attribute type</string>
+
+	<!-- Measure Attributes Values Section -->
+
+		<!-- Dimensions -->
+	<string name="MDC_DIM_PERCENT">%</string>
+	<string name="MDC_DIM_MILLI_L">mL</string>
+	<string name="MDC_DIM_X_G">g</string>
+	<string name="MDC_DIM_KILO_G">kg</string>
+	<string name="MDC_DIM_MILLI_G">mg</string>
+	<string name="MDC_DIM_MILLI_G_PER_DL">mg dL-1</string>
+	<string name="MDC_DIM_MIN">min</string>
+	<string name="MDC_DIM_HR">h</string>
+	<string name="MDC_DIM_DAY">d</string>
+	<string name="MDC_DIM_BEAT_PER_MIN">bpm</string>
+	<string name="MDC_DIM_KILO_PASCAL">kPa</string>
+	<string name="MDC_DIM_MMHG">mmHg</string>
+	<string name="MDC_DIM_MILLI_MOLE_PER_L">mmol L-1</string>
+	<string name="MDC_DIM_DEGC">ºC</string>
+
+		<!-- Medical supervisory control and data acquisition -->
+	<string name="MDC_PULS_OXIM_PULS_RATE">Pulse-oximeter pulse rate</string>
+	<string name="MDC_PULS_RATE_NON_INV">Pulse rate non invasive</string>
+	<string name="MDC_PRESS_BD_NONINV">Blood pressure non invasive</string>
+	<string name="MDC_PRESS_BD_NONINV_SYS">Blood pressure systolic non invasive</string>
+	<string name="MDC_PRESS_BD_NONINV_DIA">Blood pressure diastolic non invasive</string>
+	<string name="MDC_PRESS_BD_NONINV_MEAN">Blood pressure mean non invasive</string>
+	<string name="MDC_SAT_O2_QUAL">Oxigen saturation quality</string>
+	<string name="MDC_TEMP_BODY">Body temperature</string>
+	<string name="MDC_PULS_OXIM_PERF_REL">Pulse-oximeter Relative Perfusion</string>
+	<string name="MDC_PULS_OXIM_PLETH">PLETH wave</string>
+	<string name="MDC_PULS_OXIM_SAT_O2">Pulse-oximeter oxigen saturation</string>
+	<string name="MDC_PULS_OXIM_PULS_CHAR">Pulse-oximeter characteristic status</string>
+	<string name="MDC_PULS_OXIM_DEV_STATUS">Pulse-oximeter device status</string>
+	<string name="MDC_CONC_GLU_GEN">TODO: Set this string MDC_CONC_GLU_GEN</string>
+	<string name="MDC_CONC_GLU_CAPILLARY_WHOLEBLOOD">TODO: Set this string MDC_CONC_GLU_CAPILLARY_WHOLEBLOOD</string>
+	<string name="MDC_CONC_GLU_CAPILLARY_PLASMA">TODO: Set this string MDC_CONC_GLU_CAPILLARY_PLASMA</string>
+	<string name="MDC_CONC_GLU_VENOUS_WHOLEBLOOD">TODO: Set this string MDC_CONC_GLU_VENOUS_WHOLEBLOOD</string>
+	<string name="MDC_CONC_GLU_VENOUS_PLASMA">TODO: Set this string MDC_CONC_GLU_VENOUS_PLASMA</string>
+	<string name="MDC_CONC_GLU_ARTERIAL_WHOLEBLOOD">TODO: Set this string MDC_CONC_GLU_ARTERIAL_WHOLEBLOOD</string>
+	<string name="MDC_CONC_GLU_ARTERIAL_PLASMA">TODO: Set this string MDC_CONC_GLU_ARTERIAL_PLASMA</string>
+	<string name="MDC_CONC_GLU_CONTROL">TODO: Set this string MDC_CONC_GLU_CONTROL</string>
+	<string name="MDC_CONC_GLU_ISF">TODO: Set this string MDC_CONC_GLU_ISF</string>
+	<string name="MDC_CONC_HBA1C">TODO: Set this string MDC_CONC_HBA1C</string>
+	<string name="MDC_TRIG">TODO: Set this string MDC_TRIG</string>
+	<string name="MDC_TRIG_BEAT">TODO: Set this string MDC_TRIG_BEAT</string>
+	<string name="MDC_TRIG_BEAT_MAX_INRUSH">TODO: Set this string MDC_TRIG_BEAT_MAX_INRUSH</string>
+	<string name="MDC_MASS_BODY_ACTUAL">Body mass</string>
+	<string name="MDC_BODY_FAT">Body fat</string>
+	<string name="MDC_METRIC_NOS">TODO: Set this string MDC_METRIC_NOS</string>
+
+		<!-- Locations -->
+	<string name="MDC_AI_LOCATION_KITCHEN">TODO: Set this string MDC_AI_LOCATION_KITCHEN</string>
+
+	<string name="MDC_AI_TYPE_SENSOR_TEMP">TODO: Set this string MDC_AI_TYPE_SENSOR_TEMP</string>
+
+		<!-- Device Specialization Profile -->
+	<string name="MDC_DEV_SPEC_PROFILE_PULS_OXIM">Pulse Oximeter</string>
+	<string name="MDC_DEV_SPEC_PROFILE_BP">Blood Pressure</string>
+	<string name="MDC_DEV_SPEC_PROFILE_TEMP">Thermometer</string>
+	<string name="MDC_DEV_SPEC_PROFILE_SCALE">Weight Scale</string>
+	<string name="MDC_DEV_SPEC_PROFILE_GLUCOSE">Glucose Meter</string>
+	<string name="MDC_DEV_SPEC_PROFILE_HF_CARDIO">Cardiovascular</string>
+	<string name="MDC_DEV_SPEC_PROFILE_HF_STRENGTH">Strenght Fitness</string>
+	<string name="MDC_DEV_SPEC_PROFILE_AI_ACTIVITY_HUB">Activity Hub</string>
+	<string name="MDC_DEV_SPEC_PROFILE_AI_MED_MINDER">TODO: Set this string MDC_DEV_SPEC_PROFILE_AI_MED_MINDER</string>
+
+	<string name="MDC_TIME_SYNC_NONE">No time synchronization protocol supported</string>
+
+	<string name="MDC_MODALITY_FAST">FAST</string>
+	<string name="MDC_MODALITY_SLOW">SLOW</string>
+	<string name="MDC_MODALITY_SPOT">SPOT</string>
+
+	<string name="UNKNOWN_VALUE">Unknown attribute value</string>
+
+</resources>

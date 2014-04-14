@@ -1,0 +1,10 @@
+Author: Santiago Carot Nemesio.
+e-mail: scarot@gsyc.es
+Author: José Antonio Santos Cadenas
+e-mail: jcaden@libresoft.es
+
+
+This directory contains the files with ASN.1 definition for IEEE-11073-20601 PDUs:
+
+	* IEEE_20601_d20_defs.asn1: Original definitions for IEEE-11073 Part 20101
+	* IEEE_20601_d20_defs_BN.asn1: Hacked version of above file to adapt ASN.1 syntax for BinaryNotes compiler
