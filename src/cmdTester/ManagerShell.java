@@ -34,17 +34,18 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import com.pku.wireless.BloodMeasure;
+import com.pku.wireless.MeasureDecoder;
+import com.pku.wireless.MeasureEvent;
+import com.pku.wireless.MeasureListener;
+import com.pku.wireless.PulseMeasure;
+import com.pku.wireless.TCPManager;
+
 import Config.BloodPressureAgent;
-import Config.BloodPressureMeasure;
-import Config.PulseMeasure;
 import android.os.Message;
 
 
 import es.libresoft.openhealth.Agent;
-import es.libresoft.openhealth.BloodEvent;
-import es.libresoft.openhealth.BloodListener;
-import es.libresoft.openhealth.PulseEvent;
-import es.libresoft.openhealth.PulseListener;
 import es.libresoft.openhealth.events.Event;
 import es.libresoft.openhealth.events.EventType;
 import es.libresoft.openhealth.events.InternalEventManager;
@@ -101,7 +102,27 @@ public class ManagerShell {
 
 			//chanHDP.finish();
 			channelTCP.finish();*/
-			MeasureDataDecoder.setBloodListener(new BloodListener(){
+			MeasureDecoder.setMeasureListener(new MeasureListener(){
+
+				@Override
+				public void getBloodMeasure(MeasureEvent event) {
+					// TODO Auto-generated method stub
+					System.out.println("类型："+((BloodMeasure)event.getMeasures()).getType());					
+					System.out.println("单位："+((BloodMeasure)event.getMeasures()).getUnit());
+					System.out.println("高压："+((BloodMeasure)event.getMeasures()).getHPressure());
+					System.out.println("低压："+((BloodMeasure)event.getMeasures()).getLPressure());
+					System.out.println("平均压："+((BloodMeasure)event.getMeasures()).getAPressure());
+					System.out.println("时间："+((BloodMeasure)event.getMeasures()).getDate());
+				}
+
+				@Override
+				public void getPulseMeasure(MeasureEvent event) {
+					// TODO Auto-generated method stub
+					
+				}
+				
+			});
+			/*MeasureDecoder.setBloodListener(new BloodListener(){
 
 				@Override
 				public void getMeasure(BloodEvent event) {
@@ -123,7 +144,7 @@ public class ManagerShell {
 					
 				}
 				
-			});
+			});*/
 			
 			TCPManager tcpManager = new TCPManager(9999);
 			tcpManager.start();

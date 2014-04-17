@@ -7,11 +7,12 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import com.pku.wireless.EventAgent;
+import com.pku.wireless.TCPAgent;
+
 import Config.BloodPressureAgent;
 import Config.ECGAgent;
 import es.libresoft.openhealth.Agent;
-import es.libresoft.openhealth.TCPAgent;
-import es.libresoft.openhealth.android.IEventAgent;
 import es.libresoft.openhealth.events.Event;
 import es.libresoft.openhealth.events.EventType;
 import es.libresoft.openhealth.events.InternalEventManager;

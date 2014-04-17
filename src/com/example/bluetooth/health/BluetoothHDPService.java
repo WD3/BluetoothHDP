@@ -43,19 +43,18 @@ import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import com.pku.wireless.AndroidEventManager;
+import com.pku.wireless.AndroidMeasureDecoder;
+import com.pku.wireless.HDPManager;
+import com.pku.wireless.AndroidBloodMeasure;
+import com.pku.wireless.MeasureEvent;
+import com.pku.wireless.MeasureListener;
+import com.pku.wireless.PulseMeasure;
+
 
 import es.libresoft.openhealth.Agent;
-import es.libresoft.openhealth.BloodEvent;
-import es.libresoft.openhealth.BloodListener;
-import es.libresoft.openhealth.PulseEvent;
-import es.libresoft.openhealth.PulseListener;
 import es.libresoft.openhealth.android.AndroidConfigStorage;
 import es.libresoft.openhealth.android.AndroidMeasureReporter;
-import es.libresoft.openhealth.android.HDPManager;
-import es.libresoft.openhealth.android.IBloodPressureMeasure;
-import es.libresoft.openhealth.android.IEventManager;
-import es.libresoft.openhealth.android.IMeasureDataDecoder;
-import es.libresoft.openhealth.android.IPulseMeasure;
 import es.libresoft.openhealth.events.Event;
 import es.libresoft.openhealth.events.EventType;
 import es.libresoft.openhealth.events.InternalEventManager;
@@ -284,39 +283,38 @@ public class BluetoothHDPService extends Service {
 //						IEventManager iEventManager = new IEventManager();
 //	    				InternalEventReporter.setDefaultEventManager(iEventManager);
 						//必须先注册监听事件，再启动通道传输数据
-	    				IMeasureDataDecoder.setBloodListener(new BloodListener(){  //注册监听事件，当有血压包传过来时做出响应
-	    					@Override
-	    					public void getMeasure(BloodEvent event) {
-	    						// TODO Auto-generated method stub
-	    						Message msg1 = BluetoothHDPActivity.bpHandler.obtainMessage();
+						AndroidMeasureDecoder.setMeasureListener(new MeasureListener(){
+
+							@Override
+							public void getBloodMeasure(MeasureEvent event) {
+								// TODO Auto-generated method stub
+								Message msg1 = BluetoothHDPActivity.bpHandler.obtainMessage();
 	    						msg1.what = 1;
-	    						msg1.obj = ((IBloodPressureMeasure) event.getMeasures()).getHPressure();
+	    						msg1.obj = ((AndroidBloodMeasure) event.getMeasures()).getHPressure();
 	    						BluetoothHDPActivity.bpHandler.sendMessage(msg1);
 	    						Message msg2 = BluetoothHDPActivity.bpHandler.obtainMessage();
 	    						msg2.what = 2;
-	    						msg2.obj = ((IBloodPressureMeasure) event.getMeasures()).getLPressure();
+	    						msg2.obj = ((AndroidBloodMeasure) event.getMeasures()).getLPressure();
 	    						BluetoothHDPActivity.bpHandler.sendMessage(msg2);
 	    						bloodPressureAgent = new BloodPressureAgent();
-	    						int high = ((IBloodPressureMeasure) event.getMeasures()).getHPressure();
-	    						int low = ((IBloodPressureMeasure) event.getMeasures()).getLPressure();
-	    						int avg = ((IBloodPressureMeasure) event.getMeasures()).getAPressure();
-	    						Date date = ((IBloodPressureMeasure) event.getMeasures()).getDate();
+	    						int high = ((AndroidBloodMeasure) event.getMeasures()).getHPressure();
+	    						int low = ((AndroidBloodMeasure) event.getMeasures()).getLPressure();
+	    						int avg = ((AndroidBloodMeasure) event.getMeasures()).getAPressure();
+	    						Date date = ((AndroidBloodMeasure) event.getMeasures()).getDate();
 	    						bloodPressureAgent.addMeasure(high, low, avg, date);
 	    						UploadThread upload = new UploadThread(unique);
 	    						new Thread(upload).start();
-	    					}	    					
-	    				});
-	    				IMeasureDataDecoder.setPulseListener(new PulseListener(){	    			
+							}
+
 							@Override
-							public void getMeasure(PulseEvent event) {
+							public void getPulseMeasure(MeasureEvent event) {
 								// TODO Auto-generated method stub
 								Message msg3 = BluetoothHDPActivity.bpHandler.obtainMessage();
 	    						msg3.what = 3;
-	    						msg3.obj = ((IPulseMeasure) event.getMeasures()).getPulse();
+	    						msg3.obj = ((PulseMeasure) event.getMeasures()).getPulse();
 	    						BluetoothHDPActivity.bpHandler.sendMessage(msg3);
-							}
-	    					
-	    				});
+							}										
+						});
 	    				HDPManager hdpManager = new HDPManager(fd,unique);
 	    				hdpManager.start();
 	    				/*HDPChannel chnl = new HDPChannel (fd);
